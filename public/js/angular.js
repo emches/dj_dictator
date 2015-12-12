@@ -2,7 +2,7 @@ var app = angular.module('myApp', []);
 
 
 app.controller('AlbumCtrl', function($http, $scope, $rootScope) {
-
+$scope.playlist ;
     function getHashParams() {
       var hashParams = {};
       var e, r = /([^&;=]+)=?([^&;]*)/g,
@@ -37,6 +37,7 @@ app.controller('AlbumCtrl', function($http, $scope, $rootScope) {
                 $scope.playlist = playlist;
                  console.log("scope PL", $scope.playlist)
                  var albumId = '565f319c739293c850a2d5b9';
+                 $scope.$digest()
              }
         });
       } else {
