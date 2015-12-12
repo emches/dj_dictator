@@ -96,14 +96,14 @@ app.get('/callback', function(req, res) {
             refresh_token = body.refresh_token;
 
         var options = {
-          url: 'https://api.spotify.com/v1/users/emches/playlists/1BUQYnc3enS7OQpRhFxOIP/tracks',
+          url: 'https://api.spotify.com/v1/me',
           headers: { 'Authorization': 'Bearer ' + access_token },
           json: true
         };
 
         // use the access token to access the Spotify Web API
         request.get(options, function(error, response, body) {
-          console.log(body.items[0].track);
+          console.log(body);
       //    res.redirect('/')
         });
 

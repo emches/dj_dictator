@@ -1,7 +1,16 @@
 var app = angular.module('myApp', []);
 
 
-app.controller('AlbumCtrl', function($http, $scope, $rootScope) {
+  app.filter('trustUrl', function ($sce) {
+    return function(url) {
+      console.log("url", url)
+      console.log("trustedURL", $sce.trustAsResourceUrl(url) )
+      return $sce.trustAsResourceUrl(url);
+    };
+  });
+
+
+app.controller('AlbumCtrl', function($http, $scope, $rootScope,$sce) {
 $scope.playlist ;
     function getHashParams() {
       var hashParams = {};
@@ -34,6 +43,11 @@ $scope.playlist ;
                  console.log("front end resp", response)
                  playlist = response
              //    userProfilePlaceholder.innerHTML = userProfileTemplate(response);
+             //   uriSetter(playlist);
+
+              playlist = uriSetter(playlist)
+
+              console.log("new pl", playlist)
                 $scope.playlist = playlist;
                  console.log("scope PL", $scope.playlist)
                  var albumId = '565f319c739293c850a2d5b9';
@@ -47,12 +61,20 @@ $scope.playlist ;
       }
   }
 
+  function uriSetter (playlist) {
+    playlist.items = playlist.items.map(function (item) {
+      console.log("track uri", item.track.uri)
+      item.embedUri = "https://embed.spotify.com/?uri=" + String(item.track.uri);
+      console.log("new embed", item.embedUri)
+      return item;
+    });
+    console.log("fixed pl", playlist)
+    return playlist;
+  }
 
-    // $http.get('/api/albums/' + albumId)
-    //     .then(function(response){
-    //         $scope.data = response.data;
-    //         // console.log('scope data: ', $scope.data);
-    //         $scope.imageUrl = 'api/albums/' + albumId + '.image';
-    //     })
+   // function trustSrc (src) {
+   //    return  $sce.getTrustedUrl(src);
+   //  }
+
 
 });
