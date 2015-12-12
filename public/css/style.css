@@ -1,10 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
     font-family: Impact;
+    height: 100%;
+    width: 100%;
 }
 
 .container {
   max-width: 80%;
 }
+
+#login, #loggedin {
+        display: none;
+      }
+      .text-overflow {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 500px;
+      }
 
 .btn.btn-primary.btn-lg.download {
     padding: 15px;
@@ -15,6 +31,31 @@ body {
     padding: 15px;
     margin: 15px;
 }
+
+.tempIndicator {
+    background-color: blue;
+    height: 80px;
+    width: 100%;
+}
+
+#thumb {
+    height: 30px;
+    width: auto;
+    padding-left: 8px;
+    padding-top: 8px;
+}
+
+#hand {
+    border-radius: 100%;
+    border: 1px solid black;
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 20px;
+}
+
 /*a.button {
     -webkit-appearance: button;
     -moz-appearance: button;
