@@ -12,6 +12,7 @@
   "dependencies": {
     "angular": "^1.4.7",
     "angular-messages": "^1.4.7",
+    "angular-sanitize": "^1.4.8",
     "angular-ui-router": "^0.2.15",
     "archiver": "^0.19.0",
     "async": "^1.5.0",
@@ -20,6 +21,7 @@
     "cookie-parser": "^1.4.0",
     "express": "^4.13.3",
     "jquery": "^2.1.4",
+    "ng-sanitize": "0.0.2",
     "nodemon": "^1.8.1",
     "path": "^0.12.7",
     "qs": "^6.0.0",
