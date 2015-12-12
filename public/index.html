@@ -25,24 +25,23 @@
         <div class="row">
           <div class="col-xs-2">
             <div id="hand">
-              <img class="thumb" ng-click="upCountAdd(item)" src="/images/thumbsDown.png"/>
-              <img class="thumb" ng-click="downCountAdd(item)" src="/images/thumbsUp.png"/>
-            </div>
-            
-            
+              <span><img class="thumb" ng-click="upCountAdd(item)" src="/images/thumbsDown.png"/>
+              <img class="thumb" ng-click="downCountAdd(item)" src="/images/thumbsUp.png"/></span>
+            </div>  
           </div>
-          <div class="col-xs-8">
-            <iframe ng-src="{{ item.embedUri | trustUrl}}" width="100%" height="80" frameborder="0" allowtransparency="true"></iframe>
-            <img src="/images/oval.png"/>
+          <div class="col-xs-7">
+            <iframe ng-src="{{ item.embedUri | trustUrl}}" width="100%" height="80" frameborder="0" allowtransparency="true"></iframe> 
           </div>
 
-          <div class="col-xs-2">
-            <p>{{item.downCount}}</p>
-            <p>{{item.upCount}}</p>
-
-            <div class="tempIndicator">
-            </div>
+          <div class="col-xs-1">
+            <p class="counter">{{item.downCount}}</p>
+            <p class="counter">{{item.upCount}}</p>
           </div>
+
+          <div class="tempIndicator col-xs-2">
+              <span><img src="/images/oval.png"/></span>
+          </div>
+
         </div>
       </div>
     </div>

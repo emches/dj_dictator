@@ -34,7 +34,7 @@ body {
 
 .tempIndicator {
     height: 80px;
-    width: 100%;
+    /*width: 100%;*/
 }
 
 .tempBlue1 {
@@ -110,13 +110,19 @@ body {
 }
 
 #hand {
-   
-   
+/*    padding-left: 10px;
+    padding-right: 10px;*/
+    padding-top: 20px;
+    width: 90px;
+    display: inline-block;
     
    }
+.counter{
+   padding-top: 10px;
+}
 
 .thumb{
-   display: block;
+   /*display: inline-block;*/
    float:right;
 
 }
