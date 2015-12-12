@@ -25,8 +25,8 @@
         <div class="row">
           <div class="col-xs-2">
             <div id="hand">
-              <span><img class="thumb" ng-click="upCountAdd(item)" src="/images/thumbsDown.png"/>
-              <img class="thumb" ng-click="downCountAdd(item)" src="/images/thumbsUp.png"/></span>
+              <span><img class="thumb" ng-click="downCountAdd(item)" src="/images/thumbsDown.png"/>
+              <img class="thumb" ng-click="upCountAdd(item)" src="/images/thumbsUp.png"/></span>
             </div>  
           </div>
           <div class="col-xs-7">
@@ -38,8 +38,9 @@
             <p class="counter">{{item.upCount}}</p>
           </div>
 
-          <div class="tempIndicator col-xs-2">
-              <span><img src="/images/oval.png"/></span>
+          <div class="col-xs-2">
+            <div class="tempIndicator" ng-class="{ tempRed5: item.tempClass === 'tempRed5', tempBlue5: item.tempClass === 'tempBlue5' }">
+            </div>
           </div>
 
         </div>

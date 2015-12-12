@@ -1,17 +1,14 @@
 var app = angular.module('myApp', []);
 
-
   app.filter('trustUrl', function ($sce) {
     return function(url) {
-      console.log("url", url)
-      console.log("trustedURL", $sce.trustAsResourceUrl(url) )
       return $sce.trustAsResourceUrl(url);
     };
   });
 
+app.controller('AlbumCtrl', function($http, $scope, $rootScope, $sce) {
 
-app.controller('AlbumCtrl', function($http, $scope, $rootScope,$sce) {
-$scope.playlist ;
+$scope.playlist;
     function getHashParams() {
       var hashParams = {};
       var e, r = /([^&;=]+)=?([^&;]*)/g,
@@ -63,10 +60,16 @@ $scope.playlist ;
 
   $scope.upCountAdd = function(item){
       item.upCount++;
+      item.score = item.upCount - item.downCount;
+      $scope.setColor(item);
+      console.log(item.score);
   }
 
  $scope.downCountAdd = function(item){
       item.downCount++;
+      item.score = item.upCount - item.downCount;
+      $scope.setColor(item);
+      console.log(item.score);
   }
 
   function trackSetter (playlist) {
@@ -75,13 +78,22 @@ $scope.playlist ;
       item.embedUri = "https://embed.spotify.com/?uri=" + String(item.track.uri);
       item.upCount = 0;
       item.downCount = 0;
-      console.log("new embed", item.embedUri)
+      item.score = 0;
+      item.tempClass = null;
       return item;
     });
-    console.log("fixed pl", playlist)
     return playlist;
   }
 
+  $scope.setColor = function(track) {
+    var scoreArray = [];
 
+    $scope.playlist.items.forEach(function(song) {
+        scoreArray.push(song.score);
+    });
+
+    if (track.score > 0) track.tempClass = "tempRed5";
+    else if (track.score < 0) track.tempClass = "tempBlue5";
+  }
 
 });
