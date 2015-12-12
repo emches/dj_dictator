@@ -26,11 +26,16 @@
       <div ng-repeat="song in playlist">
         <div class="row">
           <div class="col-xs-2">
-            <div id="hand"><a href="https://openclipart.org/detail/192852/thumbs-up"><img id="thumb" src="https://openclipart.org/download/192852/thumbs-up-right.svg" /></a></div>
-            <div id="hand"><a href="https://openclipart.org/detail/192850/thumbs-down"><img id="thumb" src="https://openclipart.org/download/192850/thumbs-down-right.svg" /></a></div>
+            <div id="hand">
+              <img class="thumb" src="/images/thumbsDown.png"/>
+              <img class="thumb" src="/images/thumbsUp.png"/>
+            </div>
+            
+            
           </div>
           <div class="col-xs-8">
             <iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A33Q6ldVXuJyQmqs8BmAa0k" width="100%" height="80" frameborder="0" allowtransparency="true"></iframe>
+            <img src="/images/oval.png"/>
           </div>
           <div class="col-xs-2">
             <div class="tempIndicator">

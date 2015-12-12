@@ -109,22 +109,16 @@ body {
     background-color: #ff1a1a;
 }
 
-#thumb {
-    height: 30px;
-    width: auto;
-    padding-left: 8px;
-    padding-top: 8px;
-}
-
 #hand {
-    border-radius: 100%;
-    border: 1px solid black;
-    height: 40px;
-    width: 40px;
-    display: inline-block;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 20px;
+   
+   
+    
+   }
+
+.thumb{
+   display: block;
+   float:right;
+
 }
 
 /*a.button {
