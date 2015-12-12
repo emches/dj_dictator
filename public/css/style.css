@@ -1,10 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
     font-family: Impact;
+    height: 100%;
+    width: 100%;
 }
 
 .container {
   max-width: 80%;
 }
+
+#login, #loggedin {
+        display: none;
+      }
+      .text-overflow {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 500px;
+      }
 
 .btn.btn-primary.btn-lg.download {
     padding: 15px;
@@ -15,6 +31,102 @@ body {
     padding: 15px;
     margin: 15px;
 }
+
+.tempIndicator {
+    height: 80px;
+    width: 100%;
+}
+
+.tempBlue1 {
+    background-color: #e5e5ff;
+}
+
+.tempBlue2 {
+    background-color: #ccccff;
+}
+
+.tempBlue3 {
+    background-color: #b3b3ff;
+}
+
+.tempBlue4 {
+    background-color: #9999ff;
+}
+
+.tempBlue5 {
+    background-color: #8080ff;
+}
+
+.tempBlue6 {
+    background-color: #6666ff;
+}
+
+.tempBlue7 {
+    background-color: #4d4dff;
+}
+
+.tempBlue8 {
+    background-color: #3333ff;
+}
+
+.tempBlue9 {
+    background-color: #1a1aff;
+}
+
+.tempRed1 {
+    background-color: #ffe5e5;
+}
+
+.tempRed2 {
+    background-color: #ffcccc;
+}
+
+.tempRed3 {
+    background-color: #ffb3b3;
+}
+
+.tempRed4 {
+    background-color: #ff9999;
+}
+
+.tempRed5 {
+    background-color: #ff8080;
+}
+
+.tempRed6 {
+    background-color:  #ff6666;
+}
+
+.tempRed7 {
+    background-color: #ff4d4d;
+}
+
+.tempRed8 {
+    background-color: #ff3333;
+}
+
+.tempRed9 {
+    background-color: #ff1a1a;
+}
+
+#thumb {
+    height: 30px;
+    width: auto;
+    padding-left: 8px;
+    padding-top: 8px;
+}
+
+#hand {
+    border-radius: 100%;
+    border: 1px solid black;
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 20px;
+}
+
 /*a.button {
     -webkit-appearance: button;
     -moz-appearance: button;

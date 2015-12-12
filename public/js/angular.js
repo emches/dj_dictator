@@ -45,7 +45,7 @@ $scope.playlist ;
              //    userProfilePlaceholder.innerHTML = userProfileTemplate(response);
              //   uriSetter(playlist);
 
-              playlist = uriSetter(playlist)
+              playlist = trackSetter(playlist)
 
               console.log("new pl", playlist)
                 $scope.playlist = playlist;
@@ -61,10 +61,20 @@ $scope.playlist ;
       }
   }
 
-  function uriSetter (playlist) {
+  $scope.upCountAdd = function(item){
+      item.upCount++;
+  }
+
+ $scope.downCountAdd = function(item){
+      item.downCount++;
+  }
+
+  function trackSetter (playlist) {
     playlist.items = playlist.items.map(function (item) {
       console.log("track uri", item.track.uri)
       item.embedUri = "https://embed.spotify.com/?uri=" + String(item.track.uri);
+      item.upCount = 0;
+      item.downCount = 0;
       console.log("new embed", item.embedUri)
       return item;
     });
@@ -72,9 +82,6 @@ $scope.playlist ;
     return playlist;
   }
 
-   // function trustSrc (src) {
-   //    return  $sce.getTrustedUrl(src);
-   //  }
 
 
 });
