@@ -11,6 +11,8 @@ var express = require('express'); // Express web server framework
 var request = require('request'); // "Request" library
 var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
+var path = require('path');
+var app = express();
 
 var client_id = '8afef9160db34a4bab81dd6707ef6851'; // Your client id
 var client_secret = 'ed6fcb029e14430584732d4dd7584492'; // Your client secret
@@ -33,7 +35,10 @@ var generateRandomString = function(length) {
 
 var stateKey = 'spotify_auth_state';
 
-var app = express();
+var npmPath = path.join(__dirname, './node_modules');
+var publicPath = path.join(__dirname, './public');
+
+app.use(express.static(npmPath));
 
 app.use(express.static(__dirname + '/public'))
    .use(cookieParser());
