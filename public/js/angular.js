@@ -1,16 +1,13 @@
 var app = angular.module('myApp', []);
 
-
   app.filter('trustUrl', function ($sce) {
     return function(url) {
-      console.log("url", url)
-      console.log("trustedURL", $sce.trustAsResourceUrl(url) )
       return $sce.trustAsResourceUrl(url);
     };
   });
 
-
 app.controller('AlbumCtrl', function($http, $scope, $rootScope,$sce) {
+
 $scope.playlist ;
 
     function getHashParams() {
@@ -68,12 +65,16 @@ $scope.playlist ;
       item.upCount++;
       item.score = item.upCount - item.downCount;
       $scope.resetItems()
+      $scope.setColor(item);
+      console.log(item.score);
   }
 
  $scope.downCountAdd = function(item){
       item.downCount++;
       item.score = item.upCount - item.downCount;
       $scope.resetItems();
+      $scope.setColor(item);
+      console.log(item.score);
   }
 
   function trackSetter (playlist) {
@@ -84,9 +85,9 @@ $scope.playlist ;
       item.downCount = 0;
       item.score = 0;
       console.log("new embed", item.embedUri)
+      item.tempClass = null;
       return item;
     });
-    console.log("fixed pl", playlist)
     return playlist;
   }
 
@@ -105,6 +106,15 @@ $scope.playlist ;
     return track == $scope.currentSong;
   }
 
+  $scope.setColor = function(track) {
+    var scoreArray = [];
 
+    $scope.playlist.items.forEach(function(song) {
+        scoreArray.push(song.score);
+    });
+
+    if (track.score > 0) track.tempClass = "tempRed5";
+    else if (track.score < 0) track.tempClass = "tempBlue5";
+  }
 
 });
