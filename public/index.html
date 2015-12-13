@@ -25,11 +25,9 @@
         <div class="row" ng-class="{playing: nowPlaying(item)}">
           <div class="col-xs-2">
             <div id="hand">
-              <span><img class="thumb" ng-click="upCountAdd(item)" src="/images/thumbsDown.png"/>
-              <img class="thumb" ng-click="downCountAdd(item)" src="/images/thumbsUp.png"/></span>
-            </div>
-              <span><img class="thumb" ng-click="downCountAdd(item)" src="/images/thumbsDown.png"/>
-              <img class="thumb" ng-click="upCountAdd(item)" src="/images/thumbsUp.png"/></span>
+              <span>
+                <img class="thumb" ng-click="downCountAdd(item)" src="/images/thumbsDown.png"/>
+                <img class="thumb" ng-click="upCountAdd(item)" src="/images/thumbsUp.png"/></span>
             </div>
           </div>
           <div class="col-xs-7">
@@ -37,8 +35,9 @@
           </div>
 
           <div class="col-xs-1">
-            <p class="counter">{{item.downCount}}</p>
-            <p class="counter">{{item.upCount}}</p>
+            <p id="upcount" class="counter">{{item.upCount}}</p>
+            <p id="downcount" class="counter">{{item.downCount}}</p>
+
           </div>
 
           <div class="col-xs-2">

@@ -95,7 +95,7 @@ $scope.playlist ;
 
     $scope.playlist.items = $scope.playlist.items.sort(function( a, b){
       console.log("a", a)
-      return a.score - b.score
+      return b.score - a.score
     })
 
     $scope.currentSong = $scope.playlist.items[0];
