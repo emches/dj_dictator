@@ -115,7 +115,7 @@ body {
     padding-top: 20px;
     width: 90px;
     display: inline-block;
-    
+
    }
 .counter{
    padding-top: 10px;
@@ -125,6 +125,12 @@ body {
    /*display: inline-block;*/
    float:right;
 
+}
+
+.playing {
+    border-color: red;
+    border-width: medium;
+    border: 5px solid red
 }
 
 /*a.button {

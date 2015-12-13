@@ -12,6 +12,7 @@ var app = angular.module('myApp', []);
 
 app.controller('AlbumCtrl', function($http, $scope, $rootScope,$sce) {
 $scope.playlist ;
+
     function getHashParams() {
       var hashParams = {};
       var e, r = /([^&;=]+)=?([^&;]*)/g,
@@ -49,6 +50,8 @@ $scope.playlist ;
 
               console.log("new pl", playlist)
                 $scope.playlist = playlist;
+                $scope.currentSong = $scope.playlist.items[0];
+
                  console.log("scope PL", $scope.playlist)
                  var albumId = '565f319c739293c850a2d5b9';
                  $scope.$digest()
@@ -63,10 +66,14 @@ $scope.playlist ;
 
   $scope.upCountAdd = function(item){
       item.upCount++;
+      item.score = item.upCount - item.downCount;
+      $scope.resetItems()
   }
 
  $scope.downCountAdd = function(item){
       item.downCount++;
+      item.score = item.upCount - item.downCount;
+      $scope.resetItems();
   }
 
   function trackSetter (playlist) {
@@ -75,11 +82,27 @@ $scope.playlist ;
       item.embedUri = "https://embed.spotify.com/?uri=" + String(item.track.uri);
       item.upCount = 0;
       item.downCount = 0;
+      item.score = 0;
       console.log("new embed", item.embedUri)
       return item;
     });
     console.log("fixed pl", playlist)
     return playlist;
+  }
+
+  $scope.resetItems = function(){
+
+    $scope.playlist.items = $scope.playlist.items.sort(function( a, b){
+      console.log("a", a)
+      return a.score - b.score
+    })
+
+    $scope.currentSong = $scope.playlist.items[0];
+  }
+
+
+  $scope.nowPlaying = function(track){
+    return track == $scope.currentSong;
   }
 
 
